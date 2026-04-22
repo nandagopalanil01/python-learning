@@ -1,21 +1,28 @@
-#while true 
-while True:
-    answer = input("Do you consent? (yes/no): ")
-    if answer == "yes":
-        break
-print("Thank You")
+#unpacking lists 
+person1 = ['Shrawani', 20, 'Researcher', 'India']
+#Useing only indexes makes the code long and hard to extend
 
-#Challenge -1.allow up to 3 attempts
-#           2.if the user types yes print something
-#           3.Otherwise print"3 strikes you are out!"
-attempts = 0
-while attempts < 3:
-    answer = input("Do you agree the Messi is the GOAT? (yes/no)")
-    if answer == "yes":
-        print("Glad we are on the same page!")
-        break
-    attempts += 1
-else:
-    print("3 strikes and you are out")
-print("Thank you!")
-     
+name1, age, role, country = person1    #variable must match the list values order.
+print(country)
+print(name1)
+
+#Asterisk
+person2 = ['Nandu', 23, 'Data engineer', 'Germany']
+name2, *details, country = person2  #if we only want 1st and last item
+print(name2)
+print(details)
+print(country)
+#note : only one asterisk (*) is alowed in unpacking
+
+#Skipping Items - Underscore "_"
+user = ['Meena', 40, 'Govt', 'Japan']
+name, _, _, country = user
+print(name)
+print(country)
+
+#Combining '*' and '_'
+numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] #we only need first and least items
+first, *_, last = numbers
+print(last)
+print(first)
+
