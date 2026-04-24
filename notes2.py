@@ -1,28 +1,59 @@
-#unpacking lists 
-person1 = ['Shrawani', 20, 'Researcher', 'India']
-#Useing only indexes makes the code long and hard to extend
+#CHANGING LIST
 
-name1, age, role, country = person1    #variable must match the list values order.
-print(country)
-print(name1)
+#add items
+lists = ['a', 'b', 'c']
+lists.append('d')  #Append the new value at the end of the list
+print(lists)
 
-#Asterisk
-person2 = ['Nandu', 23, 'Data engineer', 'Germany']
-name2, *details, country = person2  #if we only want 1st and last item
-print(name2)
-print(details)
-print(country)
-#note : only one asterisk (*) is alowed in unpacking
+letters = ['a', 'b', 'c']
+letters.insert(0, 'x')
+print(letters)
+letters.insert(3, 'y')
+print(letters)
 
-#Skipping Items - Underscore "_"
-user = ['Meena', 40, 'Govt', 'Japan']
-name, _, _, country = user
-print(name)
-print(country)
+#adding new row to the end of the matrix
+matrix = [
+    ['a', 'b', 'c'],    #row 1
+    ['d', 'e', 'f'],    #row2
+    ['g', 'h', 'i']    #row3
+]
+matrix.append(['x', 'y', 'z'])  #adds new row at the end
+print(matrix)
 
-#Combining '*' and '_'
-numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] #we only need first and least items
-first, *_, last = numbers
-print(last)
-print(first)
+matrix.insert(0, ['g', 'g', 'g'])  #adds new row at the start
+print(matrix)
 
+matrix[1].append('x') #adds 'x at the end of the second row
+print(matrix)
+
+matrix[0].insert(0, 'z') #adds 'z at the start of the first row
+print(matrix)
+
+
+#remove items
+letters = ['a', 'b', 'c', 'd']
+letters.clear()  #clears everthing
+print(letters)
+
+letter = ['a', 'b', 'a']
+letter.remove('a') #removes by value(removes only the first match)
+print(letter)
+
+removed = letter.pop(1) #removes by position (to remove the last item dont need to specify it's default)
+print(letter)
+print("Removed item:", removed)
+
+#removing from matix
+matrix2 = [
+    ['a', 'b', 'c'],
+    ['d', 'e', 'f'],
+    ['g', 'h', 'i']
+]
+matrix2.remove(['a', 'b', 'c'])
+matrix2.pop()
+#remove 'e' from the matrix
+matrix2[0].remove('e')
+print(matrix2)
+
+
+#updating items
