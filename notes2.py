@@ -1,59 +1,64 @@
-#CHANGING LIST
+#Update Items
+letters1 = ['a', 'b', 'c', 'd']
+letters1[2] = 'e'  #replaces c with e
+print(letters1)
 
-#add items
-lists = ['a', 'b', 'c']
-lists.append('d')  #Append the new value at the end of the list
-print(lists)
-
-letters = ['a', 'b', 'c']
-letters.insert(0, 'x')
-print(letters)
-letters.insert(3, 'y')
-print(letters)
-
-#adding new row to the end of the matrix
-matrix = [
-    ['a', 'b', 'c'],    #row 1
-    ['d', 'e', 'f'],    #row2
-    ['g', 'h', 'i']    #row3
-]
-matrix.append(['x', 'y', 'z'])  #adds new row at the end
-print(matrix)
-
-matrix.insert(0, ['g', 'g', 'g'])  #adds new row at the start
-print(matrix)
-
-matrix[1].append('x') #adds 'x at the end of the second row
-print(matrix)
-
-matrix[0].insert(0, 'z') #adds 'z at the start of the first row
-print(matrix)
-
-
-#remove items
-letters = ['a', 'b', 'c', 'd']
-letters.clear()  #clears everthing
-print(letters)
-
-letter = ['a', 'b', 'a']
-letter.remove('a') #removes by value(removes only the first match)
-print(letter)
-
-removed = letter.pop(1) #removes by position (to remove the last item dont need to specify it's default)
-print(letter)
-print("Removed item:", removed)
-
-#removing from matix
-matrix2 = [
+matrix1 = [
     ['a', 'b', 'c'],
     ['d', 'e', 'f'],
     ['g', 'h', 'i']
 ]
-matrix2.remove(['a', 'b', 'c'])
-matrix2.pop()
-#remove 'e' from the matrix
-matrix2[0].remove('e')
+#task: update the content of the last list
+matrix1[2] = ['x', 'y', 'z']
+print(matrix1)
+#update the first item of the first row
+matrix1[0][0] = '-'  #updates 'a'
+matrix1[1][1] = '-'  #updates 'e'
+print(matrix1)
+
+#sorting lists
+letters2 = ['c', 'a', 'b', 'd']
+letters2.sort()  #sorts the list in ascending order
+print(letters2)
+
+letters2.sort(reverse = True) #sorts the list in decending order
+print(letters2)
+
+matrix2 =  [
+    ['d', 'e', 'f'],
+    ['g', 'h', 'i'],
+    ['a', 'b', 'c']
+]
+matrix2.sort()  #sorts the first item of each inner list
+print(matrix2) 
+matrix2[1].sort() #sorts only the 1st row
 print(matrix2)
 
+#sorting the data without changing the original list
+letters3 = ['c', 'a', 'b']
+new_list = sorted(letters3)
+print("original list:", letters3)
+print("sorted list:", new_list)
+new_list = sorted(letters3, reverse = True)
+print(new_list)
 
-#updating items
+#Reversing list
+letters = ['c', 'a', 'b', 'd']
+letters.reverse()
+print(letters)
+
+new_list = list(reversed(letters)) #reversed() creates an itenary object and not a list 
+print("reversed list:", new_list)
+print("original:", letters)
+
+
+#COPYING LISTS
+
+#assignment = 
+original = ['a', 'b', 'c']
+copylist = original  #both the variables reference the same list in memory,
+#so any change to the new copy will also affect tge original list
+
+#shallow copy
+original = ['a', 'b', 'c']
+copylist = original.copy
