@@ -61,4 +61,42 @@ copylist = original  #both the variables reference the same list in memory,
 
 #shallow copy
 original = ['a', 'b', 'c']
-copylist = original.copy
+copylist = original.copy()  #copy() creates a separate list in memory
+copylist.append('z')
+print("original:", original)
+print("copy:", copylist)
+#this wont work for matix because the method .copy() creates a shallow copy
+
+#deep copy
+import copy
+matrix = [
+    ['a', 'b'],
+    ['c', 'd'],
+]
+matrix_copy = copy.deepcopy(matrix)  #copy.deepcopy() creates a true, iindependent copy for all levels
+matrix.pop()
+matrix_copy[0].append('x')
+print('original:', matrix)
+print('copy:', matrix_copy)
+
+#there is one more funtion in copy module, copy.copy() which creates a shallow copy just liske the method copy()
+
+#testing : is operator
+import copy
+original = [
+    ['a', 'b'],
+    ['c', 'd'],
+]
+#assignment
+copy1 = original
+print("same object?-", original is copy1, "\n")
+
+#shallow copy
+copy2 = original.copy()
+print("same object?-", original is copy2)  #false: each variable is pointing to a different object in the memory (not identical)
+print("shared list?", original[0] is copy2[0], '\n')  #true - sharing same list
+
+#deep copy
+copy3 = copy.deepcopy(original)
+print("same object?-", original is copy3)
+print("shared list?", original[0] is copy3[0], '\n') #both are false meaning 
