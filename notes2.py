@@ -1,102 +1,24 @@
-#Update Items
-letters1 = ['a', 'b', 'c', 'd']
-letters1[2] = 'e'  #replaces c with e
-print(letters1)
+#combining lists
+letters = ['a', 'b', 'c']
+numbers = [1, 2, 3]
+comb = letters + numbers
+print(comb)
+# print(letters * 2)  #makes multiple copies of the same list
 
-matrix1 = [
-    ['a', 'b', 'c'],
-    ['d', 'e', 'f'],
-    ['g', 'h', 'i']
-]
-#task: update the content of the last list
-matrix1[2] = ['x', 'y', 'z']
-print(matrix1)
-#update the first item of the first row
-matrix1[0][0] = '-'  #updates 'a'
-matrix1[1][1] = '-'  #updates 'e'
-print(matrix1)
+comb = [letters, numbers]  
+print(comb)
 
-#sorting lists
-letters2 = ['c', 'a', 'b', 'd']
-letters2.sort()  #sorts the list in ascending order
-print(letters2)
-
-letters2.sort(reverse = True) #sorts the list in decending order
-print(letters2)
-
-matrix2 =  [
-    ['d', 'e', 'f'],
-    ['g', 'h', 'i'],
-    ['a', 'b', 'c']
-]
-matrix2.sort()  #sorts the first item of each inner list
-print(matrix2) 
-matrix2[1].sort() #sorts only the 1st row
-print(matrix2)
-
-#sorting the data without changing the original list
-letters3 = ['c', 'a', 'b']
-new_list = sorted(letters3)
-print("original list:", letters3)
-print("sorted list:", new_list)
-new_list = sorted(letters3, reverse = True)
-print(new_list)
-
-#Reversing list
-letters = ['c', 'a', 'b', 'd']
-letters.reverse()
+numbers.extend(letters)  #extend() doesn't create a new list, it expands the original copy
 print(letters)
+print(numbers)
 
-new_list = list(reversed(letters)) #reversed() creates an itenary object and not a list 
-print("reversed list:", new_list)
-print("original:", letters)
+#zip()
+comb =list(zip(letters, numbers)) #python stops at the shortest list
+print(comb)  #you can also pair them with string values. eg. zip(letters, numbers, "hi")
 
+#task: pair customers with their IDs(rebuild the relationship)
+id = [101, 102, 103]
+names = ['ali', 'shrav', 'nan']
+combine = list(zip(id, names))   #make sure the order of the list is correct
+print(combine)
 
-#COPYING LISTS
-
-#assignment = 
-original = ['a', 'b', 'c']
-copylist = original  #both the variables reference the same list in memory,
-#so any change to the new copy will also affect tge original list
-
-#shallow copy
-original = ['a', 'b', 'c']
-copylist = original.copy()  #copy() creates a separate list in memory
-copylist.append('z')
-print("original:", original)
-print("copy:", copylist)
-#this wont work for matix because the method .copy() creates a shallow copy
-
-#deep copy
-import copy
-matrix = [
-    ['a', 'b'],
-    ['c', 'd'],
-]
-matrix_copy = copy.deepcopy(matrix)  #copy.deepcopy() creates a true, iindependent copy for all levels
-matrix.pop()
-matrix_copy[0].append('x')
-print('original:', matrix)
-print('copy:', matrix_copy)
-
-#there is one more funtion in copy module, copy.copy() which creates a shallow copy just liske the method copy()
-
-#testing : is operator
-import copy
-original = [
-    ['a', 'b'],
-    ['c', 'd'],
-]
-#assignment
-copy1 = original
-print("same object?-", original is copy1, "\n")
-
-#shallow copy
-copy2 = original.copy()
-print("same object?-", original is copy2)  #false: each variable is pointing to a different object in the memory (not identical)
-print("shared list?", original[0] is copy2[0], '\n')  #true - sharing same list
-
-#deep copy
-copy3 = copy.deepcopy(original)
-print("same object?-", original is copy3)
-print("shared list?", original[0] is copy3[0], '\n') #both are false meaning 
