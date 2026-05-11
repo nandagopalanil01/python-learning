@@ -1,48 +1,39 @@
-#ITERATORS
+#Lambda functions
+#tax = lambda price: price * 1.2
 
-#task: we use iteration to transform data.
-letters = ['a', 'b', 'c']
-new_list = []
-for l in letters:
-    new_list.append(l.upper())
-    print(new_list)
+multiple = lambda x: x * 2
+print(multiple(5))
 
-#enumerate reversed zip
-letters = ['a', 'b', 'c']
-for index, value in enumerate(letters):
-    print(index, value)
+add = lambda x,y : x + y
+print(add(1,2))
 
-#reversed
-letters = ['a', 'b', 'c']
-for l in reversed (letters):
-    print(l)
+check = lambda i : i in "python"
+print(check('n'))
+print(check('z'))
 
-#zip()
-letters = ['a', 'b', 'c']
-numbers = [1, 2 , 3]
-for l, n in zip(letters, numbers):
-    print(l,n)
-
-#map
-letters = ['a', 'b', 'c']
-#task: make every ketter uppercase
-print(list(map(str.upper, letters)))
-
-#task: convert the list items to integer numbers
-numbers = ['1', '2', '3']
-print(list(map(int, numbers)))
-
-#task: clean up the list by removing all unwanted spaces
-names = [' Maria  ', 'John ', '  Kumar ']
-print(list(map(str.strip, names)))
+#lambda + map
+#task: prices are stored as messy strings and need cleaning to floats
+prices = ['$12.50', '$9.99', '$100.00']   #formula= float(p.replace('$', ''))
+print(list(map(lambda p: float(p.replace('$', '')), prices)))
 
 
-#filters
+#lambda + Filter
+#task: Remove all prices lower than 100
+prices = [120, 30, 300, 80]
+print(list(filter(lambda p: p>100, prices)))
 
-#task: clean up the list by removing unwanted data.
-letters = ['a', '', 'b', None, 'c', False]
-print(list(filter(None, letters)))
+#task: Keep only students with score higher than 70
+students = [
+    ['Maria', 85],
+    ['Kumar', 90],
+    ['Max', 60]
+]
+print(list(filter(lambda row: row[1] > 70, students))) 
 
-#task: keep only letters
-items = ['sql', '123', 'python', '42']
-print(list(filter(str.isalpha, items)))
+#task: keep only stuendts with names starting with 'M'
+students = [
+    ['Maria', 85],
+    ['Kumar', 90],
+    ['Max', 60]
+]
+print(list(filter(lambda row: row[0].startswith('M'), students)))
